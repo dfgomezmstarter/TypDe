@@ -98,6 +98,8 @@ if __name__ == '__main__':
     #
     df_final = cambiarValoresANumericos(df_final, columnas_a_mapear_especificas, None, diccionario_sintomas)
     guardarEnUnExcel(df_final, "datasetV2", "Casos Dengue")
+    df_PO = pd.read_csv("../data_based/csv/dengue_medellin_for_svm_and_ann.csv")
+    guardarEnUnExcel(df_PO, "datasetPO", "Casos Dengue")
 
 
 
