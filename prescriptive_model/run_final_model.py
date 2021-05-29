@@ -29,30 +29,13 @@ def make_prescription(symtomp, matrix):
         #print("Arreglo igual con la mejora mas alta:")
         #print(best_index)
         #print(matrix_complete[best_index])
-        return matrix_complete[best_index]
+        avg = matrix_complete[same_array_indexes, [-1]].mean()
+        return matrix_complete[best_index], avg
     else:
-        # No hay igual y hay que ejecutar el genetico
-        mutation = 0.5
-        best_answers = 1000
-        population = len(matrix_complete)
         matrix = matrix_complete.copy()
-        new_row = np.concatenate((symtomp, matrix[-1][22:-1]), axis=None)
-        new_cost = cost(symtomp[-1], new_row)
-        print("Old-> ", matrix[-1])
-        matrix[-1] = np.concatenate((new_row, new_cost), axis=None)
-        print("New-> ", matrix[-1])
-        # posicion de las prescripciones: 21
-        prescriptions = (21, len(matrix[0]) - 1)
-        condition = 0
-        matrix, same_array_indexes, mejoras, array_to_search = find_symtomp(matrix, symtomp)
+        new_row = np.concatenate((symtomp, matrix[0][22:]), axis=None)
+        return new_row, -1
 
-        print(same_array_indexes)
-        exit(1)
-
-        while condition == 0:
-            matrix, condition = find_best_combinations(matrix, prescriptions, mutation, best_answers, population)
-            # Ahora hay que garantizar de que el areglo con nuevos sintomas este dentro de la matriz final
-        pass
     #print(len(matrix))
 
 """if __name__ == '__main__':
