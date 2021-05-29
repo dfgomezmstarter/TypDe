@@ -12,9 +12,9 @@ from sklearn.model_selection import GridSearchCV
 from imblearn.under_sampling import RandomUnderSampler
 
 if __name__ == '__main__':
-    #df = pd.read_excel('../../data_based/excel/dengue_medellin_for_svm_and_ann.xlsx', sheet_name='Casos Dengue')
+    #df = pd.read_excel('../../data_base/excel/dengue_medellin_for_svm_and_ann.xlsx', sheet_name='Casos Dengue')
     #read_csv
-    df = pd.read_excel('../../data_based/excel/datasetPO.xlsx', sheet_name='Casos Dengue')
+    df = pd.read_excel('../../data_base/excel/datasetPO.xlsx', sheet_name='Casos Dengue')
 
     x, y = df.iloc[:, :-1].values, df.iloc[:, -1:].values
     x_train, x_test, y_train, y_test = train_test_split(x, y, test_size=0.3, random_state=0, stratify=y)
@@ -70,3 +70,4 @@ if __name__ == '__main__':
 
     print('Test Accuracy: %.3f' % score(mv_clf, x_test, y_test))
     confusionMatrix(y_test, y_pred)
+    save_model(model)

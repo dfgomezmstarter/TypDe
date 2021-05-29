@@ -40,6 +40,6 @@ def rocAUC(x_train, y_train, x_test, y_test, all_clf, clf_labels, colors, linest
 
     #fig = plt.figure()
     #plt.plot(range(10))
-    #fig.savefig('../data_based/images/temp.png', dpi=fig.dpi)
-    #plt.savefig('../data_based/images', dpi=300)
+    #fig.savefig('../data_base/images/temp.png', dpi=fig.dpi)
+    #plt.savefig('../data_base/images', dpi=300)
     plt.show()

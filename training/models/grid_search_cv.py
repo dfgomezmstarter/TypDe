@@ -1,4 +1,4 @@
-
+import pickle
 
 
 def fit(model, x_train, y_train):
@@ -24,3 +24,7 @@ def bestEstimator(model):
 def score(model, x_test, y_test):
     result = model.score(x_test, y_test)
     return result
+
+def save_model(model):
+    filename = '../load_model/finalized_model.sav'
+    pickle.dump(model, open(filename, 'wb'))

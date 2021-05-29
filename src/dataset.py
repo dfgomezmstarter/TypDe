@@ -1,5 +1,5 @@
 #Librerias y variables globales
-from data_cleaners import *
+from src.data_cleaners import *
 from openpyxl import load_workbook
 
 ##
@@ -49,8 +49,8 @@ def catearLosValoresTestset(df_dengue_grave, df_dengue_general, nombre_columna_y
 
 def guardarEnUnExcel(dataframe, nombre_excel, nombre_hoja):
     try:
-        book = load_workbook('../data_based/excel/{}.xlsx'.format(nombre_excel))
-        writer = pd.ExcelWriter('../data_based/excel/{}.xlsx'.format(nombre_excel), engine='xlsxwriter')
+        book = load_workbook('../data_base/excel/{}.xlsx'.format(nombre_excel))
+        writer = pd.ExcelWriter('../data_base/excel/{}.xlsx'.format(nombre_excel), engine='xlsxwriter')
         writer.book = book
         writer.sheets = dict((ws.title, ws) for ws in book.worksheets)
 
@@ -60,7 +60,7 @@ def guardarEnUnExcel(dataframe, nombre_excel, nombre_hoja):
         # Close the Pandas Excel writer and output the Excel file.
         writer.save()
     except:
-        writer = pd.ExcelWriter('../data_based/excel/{}.xlsx'.format(nombre_excel), engine='xlsxwriter')
+        writer = pd.ExcelWriter('../data_base/excel/{}.xlsx'.format(nombre_excel), engine='xlsxwriter')
 
         # Write each dataframe to a different worksheet.
         dataframe.to_excel(writer, sheet_name='{}'.format(nombre_hoja), index=False)
@@ -98,7 +98,7 @@ if __name__ == '__main__':
     #
     df_final = cambiarValoresANumericos(df_final, columnas_a_mapear_especificas, None, diccionario_sintomas)
     guardarEnUnExcel(df_final, "datasetV2", "Casos Dengue")
-    df_PO = pd.read_csv("../data_based/csv/dengue_medellin_for_svm_and_ann.csv")
+    df_PO = pd.read_csv("../data_base/csv/dengue_medellin_for_svm_and_ann.csv")
     guardarEnUnExcel(df_PO, "datasetPO", "Casos Dengue")
 
 

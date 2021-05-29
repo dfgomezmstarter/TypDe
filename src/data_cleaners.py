@@ -49,8 +49,8 @@ def cambiarValoresANumericos(data_frame=None, columnas_a_mapear=None, diccionari
 
 # Lectura de archivos
 def lecturaCsv():
-    df_dengue_grave = pd.read_csv("../data_based/csv/sivigila_denguegrave.csv")
-    df_dengue_general = pd.read_csv("../data_based/csv/sivigila_dengue.csv")
+    df_dengue_grave = pd.read_csv("../data_base/csv/sivigila_denguegrave.csv")
+    df_dengue_general = pd.read_csv("../data_base/csv/sivigila_dengue.csv")
     # Se cambiaron unos valores vacios por nan
     df_dengue_general = df_dengue_general.replace(r'^\s*$', np.nan, regex=True)
     df_dengue_grave = df_dengue_grave.replace(r'^\s*$', np.nan, regex=True)

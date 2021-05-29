@@ -3,7 +3,7 @@ import pandas as pd
 from training.models.random_forest_classifier import *
 
 if __name__ == '__main__':
-    df = pd.read_excel('../../data_based/excel/datasetV2.xlsx', sheet_name='Casos Dengue')
+    df = pd.read_excel('../../data_base/excel/datasetV2.xlsx', sheet_name='Casos Dengue')
 
     # Separación de los datos
     x, y = df.iloc[:, :-1].values, df.iloc[:, -1:].values
